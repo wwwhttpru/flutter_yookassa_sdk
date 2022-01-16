@@ -4,9 +4,9 @@ import 'package:flutter_yookassa_sdk/src/models/exceptions/exceptions.dart';
 import 'package:flutter_yookassa_sdk/src/models/result/result.dart';
 
 class FlutterYookassaSdk {
-  factory FlutterYookassaSdk.instance() => _instance ??= FlutterYookassaSdk._();
+  factory FlutterYookassaSdk.instance() => _instance ??= const FlutterYookassaSdk._();
 
-  FlutterYookassaSdk._()
+  const FlutterYookassaSdk._()
       : _channel = const MethodChannel('flutter_yookassa_sdk');
   static FlutterYookassaSdk? _instance;
 

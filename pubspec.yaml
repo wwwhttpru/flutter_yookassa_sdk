@@ -1,6 +1,6 @@
 name: flutter_yookassa_sdk
 description: This library allows implementing payment acceptance into mobile apps on iOS and works as an extension to the YooMoney API.
-version: 0.1.0+1
+version: 0.1.0+2
 homepage: https://github.com/wwwhttpru/flutter_yookassa_sdk
 repository: https://github.com/wwwhttpru/flutter_yookassa_sdk
 issue_tracker: https://github.com/wwwhttpru/flutter_yookassa_sdk/issues
