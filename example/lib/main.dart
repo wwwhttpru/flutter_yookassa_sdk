@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
     );
     try {
       final paymentData =
-          await FlutterYookassaSdk.instance().tokenization(inputData);
+          await FlutterYookassaSdk.instance.tokenization(inputData);
       print(paymentData);
     } on YooKassaException catch (error) {
       // Handle Error
@@ -77,7 +77,7 @@ class _MyAppState extends State<MyApp> {
     );
     try {
       final paymentData =
-          await FlutterYookassaSdk.instance().bankCardRepeat(inputData);
+          await FlutterYookassaSdk.instance.bankCardRepeat(inputData);
       print(paymentData);
     } on YooKassaException catch (error) {
       // Handle Error

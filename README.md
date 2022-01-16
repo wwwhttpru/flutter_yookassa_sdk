@@ -139,7 +139,7 @@ final inputData = TokenizationModuleInputData(
 ```dart
 try {
   final paymentData =
-    await FlutterYookassaSdk.instance().tokenization(inputData);
+    await FlutterYookassaSdk.instance.tokenization(inputData);
 } on YooKassaException catch (err) {
   /// Обработка ошибки
 }
@@ -426,7 +426,7 @@ final inputData = TokenizationModuleInputData(
 ### 3DSecure
 1. Вызовите 3DSecure
 ```dart
-await FlutterYookassaSdk.instance().confirm3dsCheckout(
+await FlutterYookassaSdk.instance.confirm3dsCheckout(
       confirmationUrl: confirmationUrl,
       paymentMethodType: paymentMethod,
 );
@@ -487,7 +487,7 @@ final inputData = TokenizationModuleInputData(
 ## Платёж привязанной к магазину картой с дозапросом CVC/CVV
 
 ```dart
-      final paymentData = await FlutterYookassaSdk.instance().bankCardRepeat(
+      final paymentData = await FlutterYookassaSdk.instance.bankCardRepeat(
         BankCardRepeatModuleInputData(
           clientApplicationKey: clientApplicationKey,
           shopName: shopName,
