@@ -101,9 +101,13 @@ dependencies {
 Для этого добавьте в AndroidManifest следующий код:
 
 ```xml
+<manifest ... xmlns:tools="http://schemas.android.com/tools">
+...
 <meta-data
     android:name="com.google.android.gms.wallet.api.enabled"
     tools:node="remove" />
+...
+</manifest>
 ```
 
 ## Быстрая интеграция

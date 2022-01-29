@@ -1,3 +1,7 @@
+## 0.1.1+1
+
+* update readme.md
+
 ## 0.1.1
 
  * instance made by getter
