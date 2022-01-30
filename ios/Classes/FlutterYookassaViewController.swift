@@ -50,6 +50,7 @@ final class FlutterYookassaViewController: UIViewController {
     ) {
         self.resultCompletionHandler = completionHandler
         if (self.tokenizationViewController != nil && self.tokenizationViewController is TokenizationModuleInput) {
+            self.present(self.tokenizationViewController!, animated: true)
             (self.tokenizationViewController as! TokenizationModuleInput)
                 .startConfirmationProcess(
                     confirmationUrl: confirmationUrl,
@@ -88,15 +89,15 @@ extension FlutterYookassaViewController: TokenizationModuleOutput {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.dismiss(animated: true)
-        }
-        // Отправьте токен в вашу систему
-        self.resultCompletionHandler?(
-            Result.success(
-                PaymentData(
-                    token: token.paymentToken,
-                    paymentMethod: paymentMethodType.rawValue)
+            // Отправьте токен в вашу систему
+            self.resultCompletionHandler?(
+                Result.success(
+                    PaymentData(
+                        token: token.paymentToken,
+                        paymentMethod: paymentMethodType.rawValue)
+                )
             )
-        )
+        }
     }
 
     func didFinish(
@@ -106,19 +107,19 @@ extension FlutterYookassaViewController: TokenizationModuleOutput {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.dismiss(animated: true)
-        }
-        var result: Result<PaymentData?, PaymentProcessError>
-        if let error = error {
-            switch error {
-            case .paymentMethodNotFound:
-                result = Result.failure(.paymentMethodNotFound)
+            var result: Result<PaymentData?, PaymentProcessError>
+            if let error = error {
+                switch error {
+                case .paymentMethodNotFound:
+                    result = Result.failure(.paymentMethodNotFound)
+                }
+            } else {
+                result = Result.failure(.cancelled)
             }
-        } else {
-            result = Result.failure(.cancelled)
+            self.resultCompletionHandler?(
+                result
+            )
         }
-        self.resultCompletionHandler?(
-            result
-        )
     }
 
     func didSuccessfullyConfirmation(
@@ -127,12 +128,12 @@ extension FlutterYookassaViewController: TokenizationModuleOutput {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.dismiss(animated: true)
+            // Создать экран успеха после прохождения подтверждения (3DS или Sberpay)
+            // Показать экран успеха
+            self.resultCompletionHandler?(
+                Result.success(nil)
+            )
         }
-        // Создать экран успеха после прохождения подтверждения (3DS или Sberpay)
-        // Показать экран успеха
-        self.resultCompletionHandler?(
-            Result.success(nil)
-        )
     }
 }
 

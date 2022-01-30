@@ -16,25 +16,26 @@ public class SwiftFlutterYookassaSdkPlugin: NSObject, FlutterPlugin {
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
 
-    public func present() {
+    public func present(completion: (() -> Void)? = nil) {
         let rootViewController = UIApplication.shared.delegate?.window??.rootViewController
         if (rootViewController != nil) {
-            rootViewController?.present(self.vc, animated: false, completion: nil)
+            rootViewController?.present(self.vc, animated: false, completion: completion)
         }
     }
     
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
       
       let completionHandler = { (_ response: Result<PaymentData?, PaymentProcessError>) in
-          switch response {
-              case .success(let res):
-                  result(TokenizationResult(success: true, data: res).toMap())
-              case .failure(let error):
-                  result(TokenizationResult(success: false, error: error.localizedDescription).toMap())
-          }
           DispatchQueue.main.async { [weak self] in
               guard let self = self else { return }
-              self.vc.dismiss(animated: false, completion: nil)
+              self.vc.dismiss(animated: false) {
+                  switch response {
+                      case .success(let res):
+                          result(TokenizationResult(success: true, data: res).toMap())
+                      case .failure(let error):
+                          result(TokenizationResult(success: false, error: error.localizedDescription).toMap())
+                  }
+              }
           }
       };
       
@@ -77,11 +78,12 @@ public class SwiftFlutterYookassaSdkPlugin: NSObject, FlutterPlugin {
                       applicationScheme: applicationScheme)
                   
                   // Отображаю вьюшку
-                  self.present();
-                  // Запускаю токенезацию
-                  vc.startCheckout(
-                    tokenizationModuleInputData: tokenizationModuleInputData,
-                    completionHandler: completionHandler)
+                  self.present {
+                      // Запускаю токенезацию
+                      self.vc.startCheckout(
+                        tokenizationModuleInputData: tokenizationModuleInputData,
+                        completionHandler: completionHandler)
+                  }
               }
           
           
@@ -97,10 +99,11 @@ public class SwiftFlutterYookassaSdkPlugin: NSObject, FlutterPlugin {
              let paymentMethodTypeArgs = args["paymentMethodType"] as? String,
              let paymentMethodType = PaymentMethodType.init(rawValue: paymentMethodTypeArgs) {
               // Отображаю вьюшку
-              self.present();
-              vc.startConfirmationProcess(confirmationUrl: confirmationUrl,
-                                           paymentMethodType: paymentMethodType,
-                                           completionHandler: completionHandler)
+              self.present {
+                  self.vc.startConfirmationProcess(confirmationUrl: confirmationUrl,
+                                               paymentMethodType: paymentMethodType,
+                                               completionHandler: completionHandler)
+              }
           }
       } else if (call.method == "bankCardRepeat") {
           guard let myArgs = call.arguments as? [String: Any] else {
@@ -137,10 +140,12 @@ public class SwiftFlutterYookassaSdkPlugin: NSObject, FlutterPlugin {
 //                  customerId: customerId,
 //                  isSafeDeal: isSafeDeal)
               // Отображаю вьюшку
-              self.present();
-              vc.startBankCardCheckout(
-                bankCardRepeatModuleInputData: bankCardRepeatModuleInputData,
-                completionHandler: completionHandler)
+              self.present {
+                  self.vc.startBankCardCheckout(
+                    bankCardRepeatModuleInputData: bankCardRepeatModuleInputData,
+                    completionHandler: completionHandler)
+              }
+              
           }
       }  else {
             result(FlutterMethodNotImplemented)
