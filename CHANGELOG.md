@@ -1,3 +1,7 @@
+## 0.1.2
+
+* fix error 3ds
+
 ## 0.1.1+1
 
 * update readme.md
