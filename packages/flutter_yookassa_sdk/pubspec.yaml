@@ -1,0 +1,29 @@
+name: flutter_yookassa_sdk
+description: A new Flutter project.
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+  flutter: ">=2.5.0"
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        default_package: yookassa_sdk_android
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # For development. Remove/comment before publishing to pub.
+dependency_overrides:
+  yookassa_sdk_platform_interface:
+    path: ../yookassa_sdk_platform_interface
+  yookassa_sdk_android:
+    path: ../yookassa_sdk_android
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter

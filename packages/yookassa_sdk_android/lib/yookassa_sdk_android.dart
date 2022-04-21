@@ -1,0 +1,1 @@
+library yookassa_sdk_android;

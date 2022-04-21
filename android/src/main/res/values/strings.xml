@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="checkout_cancelled">Payment has been cancelled by user</string>
-    <string name="checkout_unknown_error">An unknown error has occurred</string>
-    <string name="checkout_general_error">An error has occurred</string>
-</resources>

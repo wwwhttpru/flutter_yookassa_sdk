@@ -1,6 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="checkout_cancelled">Процесс оплаты был прерван пользователем</string>
-    <string name="checkout_unknown_error">Произошла неизвестная ошибка</string>
-    <string name="checkout_general_error">Произошла ошибка</string>
-</resources>
