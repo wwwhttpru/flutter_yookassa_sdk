@@ -9,7 +9,7 @@ class PaymentMethodTypes {
     required this.rawValue,
   });
 
-  /// Any Bank card.
+  /// Любая банковская карта.
   const PaymentMethodTypes.bankCard()
       : rawValue = const <PaymentMethodType>{
           PaymentMethodType.bankCard,
@@ -39,7 +39,7 @@ class PaymentMethodTypes {
           PaymentMethodType.googlePay,
         };
 
-  /// All the available methods.
+  /// Все доступные способы оплаты.
   const PaymentMethodTypes.all()
       : rawValue = const <PaymentMethodType>{
           PaymentMethodType.bankCard,
@@ -49,11 +49,12 @@ class PaymentMethodTypes {
           PaymentMethodType.yooMoney,
         };
 
-  /// Платежные типы [PaymentMethodType],
-  /// через которые возможна оплата в ЮКассе
+  /// Список платежных систем.
+  ///
+  /// {@macro payment_method_type}
   final Set<PaymentMethodType> rawValue;
 
-  /// Convert to JSON
+  /// Конвертировать объект в JSON-формат.
   Map<String, Object?> toJson() => <String, Object?>{
         'raw_value': rawValue
             .map((PaymentMethodType e) => e.toJson)

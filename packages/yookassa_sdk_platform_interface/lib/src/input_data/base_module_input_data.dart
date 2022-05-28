@@ -1,9 +1,11 @@
+import 'package:meta/meta.dart';
+
 import '../models/models.dart';
 
 /// {@macro base_module_input_data}
 abstract class BaseModuleInputData {
   /// {@template base_module_input_data}
-  /// Базовый класс для всех модулей ввода данных.
+  /// Базовый класс для модулей ввода данных.
   /// {@endtemplate}
   const BaseModuleInputData({
     required this.amount,
@@ -45,13 +47,15 @@ abstract class BaseModuleInputData {
   final bool isLoggingEnabled;
 
   /// По умолчанию null.
+  ///
   /// {@macro test_mode_settings}
   final TestModeSettings? testModeSettings;
 
   /// {@macro customization_settings}
   final CustomizationSettings customizationSettings;
 
-  /// Convert to JSON
+  /// Конвертировать объект в JSON-формат.
+  @mustCallSuper
   Map<String, Object?> toJson() => <String, Object?>{
         'amount': amount.toJson(),
         'shop_name': shopName,

@@ -3,8 +3,14 @@ part of '../models.dart';
 /// {@macro currency}
 class Currency {
   /// {@template currency}
-  /// Валюта платежа
-  /// {@currency}
+  /// Валюта платежа.
+  ///
+  /// Можете выбрать одну из стандартных:
+  /// [Currency.rub], [Currency.usd], [Currency.eur].
+  ///
+  /// Если вы хотите указать собственную валюту, создайте объект
+  /// указав свою.
+  /// {@endtemplate}
   const Currency({
     required this.value,
   });
@@ -21,6 +27,6 @@ class Currency {
   /// Значение
   final String value;
 
-  /// Convert to JSON
+  /// Конвертировать объект в JSON-формат.
   Map<String, Object?> toJson() => <String, Object?>{'value': value};
 }

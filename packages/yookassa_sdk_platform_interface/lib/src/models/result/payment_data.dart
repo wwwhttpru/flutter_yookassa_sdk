@@ -6,15 +6,15 @@ class PaymentData {
   /// {@template payment_data}
   /// Результат оплаты ЮКасса.
   ///
-  /// [token] - Токен платежа.
-  /// [paymentMethod] - Метод оплаты, см. [PaymentMethodType].
+  /// Поле [token] содержит токен платежа.
+  /// Поле [paymentMethod] содержит информацию о методе оплаты.
   /// {@endtemplate}
   const PaymentData({
     required this.token,
     required this.paymentMethod,
   });
 
-  /// Converts the supplied [Map] to an instance of the [PaymentData] class.
+  /// Преобразует предоставленную карту [json] в экземпляр класса [PaymentData].
   factory PaymentData.fromJson(Map<String, Object?> json) {
     if (!json.containsKey('token')) {
       throw ArgumentError.value(
@@ -39,13 +39,12 @@ class PaymentData {
   }
 
   /// Токен оплаты.
-  /// Создайте платеж по API ЮКасса
   final String token;
 
   /// Тип платежного средства
   final PaymentMethodType paymentMethod;
 
-  /// Convert to JSON
+  /// Конвертировать объект в JSON-формат.
   Map<String, Object?> toJson() => <String, Object?>{
         'token': token,
         'payment_method': paymentMethod.toJson,

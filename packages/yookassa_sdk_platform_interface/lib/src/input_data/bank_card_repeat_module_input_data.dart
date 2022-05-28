@@ -33,7 +33,7 @@ class BankCardRepeatModuleInputData extends BaseModuleInputData {
   /// Идентификатор сохраненного способа оплаты
   final String paymentMethodId;
 
-  /// Convert to JSON
+  /// Конвертировать объект в JSON-формат.
   @override
   Map<String, Object?> toJson() => <String, Object?>{
         ...super.toJson(),

@@ -3,23 +3,23 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'models/models.dart';
 import 'yookassa_sdk_channel.dart';
 
-/// The interface that implementations of YookassaSDK must implement.
+/// Интерфейс, который должны реализовывать реализации YookassaSDK.
 abstract class YookassaSdkInterface extends PlatformInterface {
-  /// Constructs a YookassaSdkInterface.
+  /// Конструктор YookassaSdkInterface.
   YookassaSdkInterface() : super(token: _token);
 
   static YookassaSdkInterface _instance = YookassaSdkChannel();
 
   static const Object _token = Object();
 
-  /// The default instance of [YookassaSdkInterface] to use.
+  /// Используемый экземпляр [YookassaSdkInterface] по умолчанию.
   ///
-  /// Defaults to [YookassaSdkChannel].
+  /// По умолчанию [YookassaSdkChannel].
   static YookassaSdkInterface get instance => _instance;
 
-  /// Platform-specific plugins should set this with their own
-  /// platform-specific class that extends [YookassaSdkInterface] when they
-  /// register themselves.
+  /// Плагины для конкретных платформ должны устанавливать это с помощью своих собственных
+  /// специфичный для платформы класс, который расширяет [YookassaSdkInterface], когда они
+  /// регистрируемся сами.
   static set instance(YookassaSdkInterface instance) {
     PlatformInterface.verifyToken(instance, _token);
     _instance = instance;
@@ -32,8 +32,9 @@ abstract class YookassaSdkInterface extends PlatformInterface {
   /// Если среди платёжных методов [PaymentMethodType.yooMoney]
   /// есть кошелёк ЮMoney, необходимо зарегистрировать приложение
   /// и получить [moneyAuthClientId].
-  /// Если вы передали способ оплаты [PaymentMethodType.yooMoney], но не указали [moneyAuthClientId],
-  /// то будет выбрашено исключение [AuthClientIdNotFoundException].
+  /// Если вы передали способ оплаты [PaymentMethodType.yooMoney],
+  /// но не указали [moneyAuthClientId], то будет выбрашено
+  /// исключение [AuthClientIdNotFoundException].
   ///
   /// В случае ошибки выбросит исключение [TokenizationException].
   /// Если пользователь отменил токенизацию, возвращает [CanceledException].

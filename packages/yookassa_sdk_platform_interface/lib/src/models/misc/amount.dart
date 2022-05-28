@@ -3,7 +3,7 @@ part of '../models.dart';
 /// {@macro amount}
 class Amount {
   /// {@template amount}
-  /// Объект, содержащий сумму заказа и валюту
+  /// Объект, содержащий сумму заказа и валюту.
   /// {@endtemplate}
   const Amount({
     required this.value,
@@ -16,7 +16,7 @@ class Amount {
   /// {@macro currency}
   final Currency currency;
 
-  /// Convert to JSON
+  /// Конвертировать объект в JSON-формат.
   Map<String, Object?> toJson() => <String, Object?>{
         'value': value,
         'currency': currency.toJson(),

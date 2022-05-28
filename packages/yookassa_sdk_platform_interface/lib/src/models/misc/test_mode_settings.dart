@@ -3,7 +3,7 @@ part of '../models.dart';
 /// {@macro test_mode_settings}
 class TestModeSettings {
   /// {@template test_mode_settings}
-  /// Настройки тестового режима.
+  /// Настройки для тестирование работоспособности Yookassa SDK.
   /// {@endtemplate}
   const TestModeSettings({
     required this.paymentAuthorizationPassed,
@@ -19,6 +19,8 @@ class TestModeSettings {
   /// Количество привязанные карт к кошельку в ЮMoney.
   final int cardsCount;
 
+  /// Комиссия.
+  ///
   /// {@macro amount}
   final Amount charge;
 
@@ -29,10 +31,9 @@ class TestModeSettings {
   /// проведенные через Google Pay, будут использовать WalletConstants.ENVIRONMENT_TEST.
   /// Имейте ввиду, что при попытке оплаты с параметром googlePayTestEnvironment=true
   /// произойдет ошибка токенизации.
-  /// Подробнее см. на https://developers.google.com/pay/api/android/guides/test-and-deploy/integration-checklist#about-the-test-environment.
   final bool googlePayTestEnvironment;
 
-  /// Convert to JSON
+  /// Конвертировать объект в JSON-формат.
   Map<String, Object?> toJson() => <String, Object?>{
         'payment_authorization_passed': paymentAuthorizationPassed,
         'cards_count': cardsCount,

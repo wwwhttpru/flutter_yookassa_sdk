@@ -3,11 +3,11 @@ part of '../models.dart';
 /// {@macro yookassa_exception}
 abstract class YookassaException implements Exception {
   /// {@template yookassa_exception}
-  /// Выбрасывается при ошибке в процессе выполнения токенизации или подтверждения.
+  /// Базовый класс для ошибок при работе с YookassaSDK.
   ///
-  ///
-  /// [message] - сообщение об ошибке, может быть пустым
-  /// [detail] - детализация ошибки, может быть пустым
+  /// Юкасса может передать сообщение об ошибке в [message], но не всегда.
+  /// Так же в [detail] может содержаться дополнительная информация об ошибке,
+  /// такие как код, и описание.
   /// {@endtemplate}
   const YookassaException({
     this.message,
@@ -17,7 +17,7 @@ abstract class YookassaException implements Exception {
   /// Сообщение об ошибке.
   final String? message;
 
-  /// Подробности об ошибке.
+  /// Дополнительная информация об ошибке.
   final String? detail;
 
   @override

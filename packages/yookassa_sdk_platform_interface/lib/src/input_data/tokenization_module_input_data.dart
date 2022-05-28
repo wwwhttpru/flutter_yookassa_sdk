@@ -39,6 +39,7 @@ class TokenizationModuleInputData extends BaseModuleInputData {
 
   /// По умолчанию используется стандартный инициализатор
   /// со всеми способами оплаты.
+  ///
   /// {@macro tokenization_settings}
   final TokenizationSettings tokenizationSettings;
 
@@ -55,7 +56,7 @@ class TokenizationModuleInputData extends BaseModuleInputData {
   /// По умолчанию null. URL страницы (поддерживается только https), на которую
   /// надо вернуться после прохождения 3-D Secure.
   /// Необходим только при кастомной реализации 3-D Secure.
-  /// Если вы используете TODO: confirm methodName,
+  /// Если вы используете [YookassaSdkInterface.confirmation],
   /// не задавайте этот параметр.
   final String? customReturnUrl;
 
@@ -78,7 +79,7 @@ class TokenizationModuleInputData extends BaseModuleInputData {
   /// *Если передать неверный идентификатор, пользователь сможет выбрать для оплаты чужие банковские карты.*
   final String? customerId;
 
-  /// Convert to JSON
+  /// Конвертировать объект в JSON-формат.
   @override
   Map<String, Object?> toJson() => <String, Object?>{
         ...super.toJson(),

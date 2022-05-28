@@ -7,6 +7,6 @@ abstract class CustomizationColors {
   /// {@endtemplate}
   const CustomizationColors._();
 
-  /// BlueRibbon color
+  /// BlueRibbon цвет, взятый из iOS.
   static const Color blueRibbon = Color.fromRGBO(0, 44, 94, 1);
 }

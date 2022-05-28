@@ -2,9 +2,10 @@ import 'dart:ui' show Color;
 
 import 'package:meta/meta.dart';
 
-import '../helpers/helpers.dart';
 import '../input_data/base_module_input_data.dart';
 
+// helpers
+part '../helpers/color_serializer.dart';
 // input data
 part '../input_data/bank_card_repeat_module_input_data.dart';
 part '../input_data/confirm_input_data.dart';

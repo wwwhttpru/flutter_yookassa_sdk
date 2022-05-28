@@ -4,25 +4,36 @@ part of '../models.dart';
 /// Тип платежного средства.
 /// {@endtemplate}
 enum PaymentMethodType {
-  /// Bank Card. "bank_card"
+  /// Банковская карта.
   bankCard,
 
-  /// Sberbank.
+  /// Сбербанк.
   sberbank,
 
-  /// ApplePay. "apple_pay"
+  /// Apple Pay.
+  ///
+  /// Только в iOS.
+  /// Если вы передадите это значение в метод платежа в Android,
+  /// то система воспримет это как Google Pay.
   applePay,
 
-  /// GooglePlay. "google_pay"
+  /// GooglePlay.
+  ///
+  /// Только в Android.
+  /// Если вы передадите это значение в метод платежа в iOS,
+  /// то система воспримет это как Apple Pay.
   googlePay,
 
-  /// YooMoney. "yoo_money"
+  /// YooMoney.
+  ///
+  /// При использование данной системы вы должны зарегистрировать
+  /// приложение и получить ключ.
   yooMoney,
 }
 
-/// PaymentMethodType extension
+/// Расширение для [PaymentMethodType].
 extension PaymentMethodTypeExtension on PaymentMethodType {
-  /// Mapped this model to JSON name
+  /// Конвертировать объект в строку, для использования в JSON-формате.
   String get toJson {
     switch (this) {
       case PaymentMethodType.bankCard:
@@ -39,10 +50,13 @@ extension PaymentMethodTypeExtension on PaymentMethodType {
   }
 }
 
-/// PaymentMethodType from JSON
+/// Класс для конвертирование строки в [PaymentMethodType].
 @internal
 mixin PaymentMethodTypeMixin {
-  /// PaymentMethodType from JSON
+  /// Конвертировать строку в [PaymentMethodType].
+  ///
+  /// Если строка не соответствует ни одному из вариантов,
+  /// то выбросит [Exception].
   static PaymentMethodType fromJson(String value) {
     switch (value) {
       case 'bank_card':

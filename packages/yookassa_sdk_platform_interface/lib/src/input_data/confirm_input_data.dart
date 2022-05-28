@@ -27,13 +27,14 @@ class ConfirmInputData {
   final bool isLoggingEnabled;
 
   /// По умолчанию null.
+  ///
   /// {@macro test_mode_settings}
   final TestModeSettings? testModeSettings;
 
   /// {@macro customization_settings}
   final CustomizationSettings customizationSettings;
 
-  /// Convert to JSON
+  /// Конвертировать объект в JSON-формат.
   Map<String, Object?> toJson() => <String, Object?>{
         'confirmation_url': confirmationUrl,
         'payment_method_type': paymentMethodType,

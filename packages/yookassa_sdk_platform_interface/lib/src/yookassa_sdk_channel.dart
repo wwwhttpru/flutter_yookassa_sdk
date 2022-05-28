@@ -4,9 +4,9 @@ import 'constants.dart';
 import 'models/models.dart';
 import 'yookassa_sdk_interface.dart';
 
-/// An implementation of [YookassaSdkInterface] that uses method channels.
+/// Реализация [YookassaSdkInterface], использующая каналы методов.
 class YookassaSdkChannel extends YookassaSdkInterface {
-  /// The method channel used to interact with the native platform.
+  /// Канал метода, используемый для взаимодействия с собственной платформой.
   static const MethodChannel _channel = MethodChannel(kChannel);
 
   @override
@@ -83,7 +83,7 @@ class YookassaSdkChannel extends YookassaSdkInterface {
     }
   }
 
-  /// Handles a [PlatformException] that was thrown by the Flutter SDK.
+  /// Обрабатывает [PlatformException], созданное Flutter SDK.
   Exception _handlePlatformException(PlatformException exception) {
     switch (exception.code) {
       case kInvalidTokenizationCode:
