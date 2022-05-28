@@ -1,6 +1,6 @@
 name: yookassa_sdk_platform_interface
-description: A common platform interface for Flutter Yookassa SDK. Сontains cross-platform logic.
-version: 0.0.1
+description: A common platform interface for Flutter Yookassa SDK.
+version: 0.1.0
 repository: https://github.com/wwwhttpru/flutter_yookassa_sdk
 issue_tracker: https://github.com/wwwhttpru/flutter_yookassa_sdk/issues
 homepage: https://github.com/wwwhttpru/flutter_yookassa_sdk
@@ -12,9 +12,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  meta: ^1.7.0
   plugin_platform_interface: ^2.1.2
+  meta: ^1.7.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^2.0.1
