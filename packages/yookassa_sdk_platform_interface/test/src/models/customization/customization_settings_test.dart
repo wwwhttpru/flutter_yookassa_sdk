@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:yookassa_sdk_platform_interface/src/helpers/color_serializer.dart';
 import 'package:yookassa_sdk_platform_interface/src/models/models.dart';
 
 void main() {
