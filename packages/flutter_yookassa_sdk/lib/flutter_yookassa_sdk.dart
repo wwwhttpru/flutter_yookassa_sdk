@@ -7,6 +7,7 @@ import 'package:yookassa_sdk_platform_interface/yookassa_sdk_platform_interface_
 // export
 export 'package:yookassa_sdk_android/yookassa_sdk_android.dart';
 export 'package:yookassa_sdk_platform_interface/yookassa_sdk_platform_interface.dart';
+export 'package:yookassa_sdk_platform_interface/yookassa_sdk_platform_interface_private.dart';
 
 // part
 part 'src/flutter_yookassa_sdk.dart';
