@@ -1,11 +1,13 @@
 name: flutter_yookassa_sdk
-description: A new Flutter project.
-version: 0.0.1
-homepage:
+description: Yookassa SDK plugin for Flutter. This plugin provides a cross-platform (iOS, Android) API for making payments through Yookassa.
+version: 0.2.0
+homepage: https://github.com/wwwhttpru/flutter_yookassa_sdk
+repository: https://github.com/wwwhttpru/flutter_yookassa_sdk
+issue_tracker: https://github.com/wwwhttpru/flutter_yookassa_sdk/issues
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
-  flutter: ">=2.5.0"
+  sdk: ">=2.15.0 <3.0.0"
+  flutter: ">=2.8.0"
 
 flutter:
   plugin:
@@ -27,3 +29,5 @@ dependency_overrides:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_lints: ^2.0.1
+  plugin_platform_interface: ^2.1.2
