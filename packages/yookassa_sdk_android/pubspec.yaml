@@ -1,0 +1,34 @@
+name: yookassa_sdk_android
+description: A plug-in to add support for payments on the Android side of Yookassa SDK.
+version: 0.1.0
+repository: https://github.com/wwwhttpru/flutter_yookassa_sdk
+issue_tracker: https://github.com/wwwhttpru/flutter_yookassa_sdk/issues
+homepage: https://github.com/wwwhttpru/flutter_yookassa_sdk
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+  flutter: ">=2.8.0"
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: ru.wwwhttpru.yookassa_sdk_android
+        pluginClass: YookassaSdkAndroidPlugin
+        dartPluginClass: YookassaSdkAndroid
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # For development. Remove/comment before publishing to pub.
+dependency_overrides:
+  yookassa_sdk_platform_interface:
+    path: ../yookassa_sdk_platform_interface
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.1
+  plugin_platform_interface: ^2.1.2
+
