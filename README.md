@@ -1,7 +1,9 @@
 # Flutter YooKassa Payments SDK
 
-* [Android YooKassa Payments SDK](https://github.com/yoomoney/yookassa-android-sdk)
-* [iOS YooKassa Payments SDK](https://github.com/yoomoney/yookassa-payments-swift)
+> **⚠️ Project Archived / Проект заархивирован**
+> 
+> **This repository is no longer maintained.** Development has been discontinued in favor of the official [yookassa_payments_flutter](https://pub.dev/packages/yookassa_payments_flutter) plugin.
+> **Please migrate to the official solution.** For details see the [announcement](https://github.com/wwwhttpru/flutter_yookassa_sdk/issues/11).
 
 Эта библиотека позволяет встроить прием платежей в мобильное приложение.
 Она работает как дополнение к API ЮKassa.
